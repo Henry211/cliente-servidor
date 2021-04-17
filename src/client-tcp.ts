@@ -4,6 +4,7 @@ import WebSocket from 'ws';
 
 var ws = new WebSocket('ws://127.0.0.1:8081');
 
+    //FUNCIONES PARA LOS EVENTOS
 ws.onopen = function () {
   console.log('Connection is open ...');
   ws.send('Hello Server!');
@@ -26,6 +27,7 @@ ws.onmessage = function (event: any) {
     const message = d.toString().trim();
  
       ws.send(message);
+      
    
   });
 }
