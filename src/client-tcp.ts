@@ -14,7 +14,7 @@ ws.onerror = function (err: any) {
 };
 ws.onclose = function () {
   console.log('Connection is closed...');
-  process.exit(1);
+  process.exit();
 };
 
 ws.onmessage = function (event: any) {
@@ -26,7 +26,13 @@ ws.onmessage = function (event: any) {
   stdin.addListener('data', function (d) {
     const message = d.toString().trim();
  
-      ws.send(message);
+      if(message == "salir"){
+            ws.send("bye Server");
+            ws.close();
+            process.exit();
+      }else{
+            ws.send(message);
+      }
       
    
   });
