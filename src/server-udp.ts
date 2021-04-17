@@ -4,6 +4,7 @@ const server = udp.createSocket('udp4');
 const serverIp='localhost';
 const serverPort=2222;
 server.on('message',function(msg: string | any[],info: { address: any; port: any; }){
+    
   console.log('Data received from client : ' + msg.toString());
   console.log('Received %d bytes from %s:%d\n',msg.length, info.address, info.port);
  
